@@ -37,7 +37,7 @@ services:
       - default
 
   proxy:
-    image: pourquoi42/nginx-proxy:alpine
+    image: pourquoi42/nginx-proxy
     restart: unless-stopped
     ports:
 #      - 80:80
