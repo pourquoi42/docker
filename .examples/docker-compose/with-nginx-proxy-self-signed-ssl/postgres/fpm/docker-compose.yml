@@ -15,7 +15,7 @@ services:
     volumes:
       - /data/nextcloud/nextcloud:/var/www/html
     environment:
-      - MYSQL_HOST=db
+      - POSTGRES_HOST=db
     env_file:
       - db.env
     depends_on:
