@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db:
-    image: postgres
+    image: arm32v7/postgres
     restart: always
     volumes:
       - /data/nextcloud/db:/var/lib/postgresql/data
@@ -10,7 +10,7 @@ services:
       - db.env
 
   app:
-    image: nextcloud:fpm
+    image: pourquoi42/fpm
     restart: unless-stopped
     volumes:
       - /data/nextcloud/nextcloud:/var/www/html
@@ -22,7 +22,7 @@ services:
       - db
 
   web:
-    image: nginx
+    image: arm32v7/nginx
     restart: unless-stopped
     volumes:
       - /data/nextcloud/nextcloud:/var/www/html:ro
@@ -37,7 +37,7 @@ services:
       - default
 
   proxy:
-    image: jwilder/nginx-proxy:alpine
+    image: pourquoi42/nginx-proxy:alpine
     restart: unless-stopped
     ports:
 #      - 80:80
@@ -55,7 +55,7 @@ services:
       - omgwtfssl
 
   omgwtfssl:
-    image: paulczar/omgwtfssl
+    image: pourquoi42//omgwtfssl
     restart: "no"
     volumes:
       - /data/nextcloud/certs:/certs
