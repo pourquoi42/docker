@@ -55,7 +55,7 @@ services:
       - omgwtfssl
 
   omgwtfssl:
-    image: pourquoi42//omgwtfssl
+    image: pourquoi42/omgwtfssl
     restart: "no"
     volumes:
       - /data/nextcloud/certs:/certs
